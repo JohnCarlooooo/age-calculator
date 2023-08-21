@@ -1,27 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .form-container {
+    @apply flex flex-col gap-2;
+  }
+  .form-label {
+    @apply text-lg font-bold text-SmokeyGrey;
+  }
+  .form-input {
+    @apply focus:outline-Purple outline-SmokeyGrey border-LightGrey w-full border-2 rounded-lg h-20 p-4 text-[32px] text-OffBlack font-bold;
+  }
+  .result-value {
+    @apply text-Purple font-extrabold text-7xl italic;
+  }
+  .result-label {
+    @apply text-OffBlack font-extrabold text-7xl italic;
+  }
+  .icon-button {
+    @apply hover:bg-OffBlack transition-all duration-300 cursor-pointer z-20 bg-Purple h-20 w-20 rounded-full flex flex-col justify-center items-center;
   }
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"] {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield !important;
+  }
 }
